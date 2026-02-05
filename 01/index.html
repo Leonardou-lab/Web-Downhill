@@ -1,0 +1,436 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downhill México</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top" class="page-home page-dark"> 
+    <!-- HERO Section -->
+    <header class="hero">
+        <!-- TODO: Reemplazar el background-color del .hero con una imagen real -->
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+            <!-- copiar el video aquí: ./media/hero.mp4 -->
+            <source src="./media/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="hero-copy">
+                <h1 class="hero-title">Downhill<br>México</h1>
+                <p class="hero-claim">Gravedad. Velocidad.<br>Precisión.</p>
+                <a href="eventos.html" class="hero-cta-btn">COMPITE</a>
+            </div>
+        </div>
+
+        <!-- Navigation Bar injected by navbar.js -->
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Carreras Section -->
+        <section class="section-carreras">
+            <div class="section-intro">
+                <h2 class="section-title">Próximos Eventos</h2>
+                <p class="section-sub">Prepárate para la adrenalina. Estas son las próximas paradas del campeonato nacional.</p>
+                <div class="wrapper-ver-todo">
+                    <a href="carreras.html" class="btn-ver-todo">VER TODO</a>
+                </div>
+            </div>
+            
+            <div class="carousel-wrapper">
+                <div class="carousel-wrap">
+                    <div class="carousel-container carousel-carreras" id="carousel-carreras">
+                        <!-- TODO: Reemplazar background-color con imágenes reales de cada evento -->
+                        <a href="evento-ajusco.html" class="card card-carrera">
+                            <div class="card-image card-ajusco"></div>
+                            <div class="card-info">
+                                <h3>Ajusco</h3>
+                                <p>Enero 15, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-guanajuato.html" class="card card-carrera">
+                            <div class="card-image card-guanajuato"></div>
+                            <div class="card-info">
+                                <h3>Guanajuato</h3>
+                                <p>Marzo 20, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-atlixco.html" class="card card-carrera">
+                            <div class="card-image card-atlixco"></div>
+                            <div class="card-info">
+                                <h3>Atlixco</h3>
+                                <p>Mayo 10, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-valle-de-bravo.html" class="card card-carrera">
+                            <div class="card-image card-valle-bravo"></div>
+                            <div class="card-info">
+                                <h3>Valle de Bravo</h3>
+                                <p>Junio 2, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-taxco-urbano.html" class="card card-carrera">
+                            <div class="card-image card-taxco"></div>
+                            <div class="card-info">
+                                <h3>Taxco Urbano</h3>
+                                <p>Julio 13, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-san-cristobal.html" class="card card-carrera">
+                            <div class="card-image card-san-cristobal"></div>
+                            <div class="card-info">
+                                <h3>San Cristóbal</h3>
+                                <p>Agosto 24, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-puebla-dh.html" class="card card-carrera">
+                            <div class="card-image card-puebla"></div>
+                            <div class="card-info">
+                                <h3>Puebla DH</h3>
+                                <p>Septiembre 7, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-tepoztlan.html" class="card card-carrera">
+                            <div class="card-image card-tepoztlan"></div>
+                            <div class="card-info">
+                                <h3>Tepoztlán</h3>
+                                <p>Octubre 12, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-monterrey-dh.html" class="card card-carrera">
+                            <div class="card-image card-monterrey"></div>
+                            <div class="card-info">
+                                <h3>Monterrey DH</h3>
+                                <p>Noviembre 9, 2024</p>
+                            </div>
+                        </a>
+                        
+                        <a href="evento-zacatlan.html" class="card card-carrera">
+                            <div class="card-image card-zacatlan"></div>
+                            <div class="card-info">
+                                <h3>Zacatlán</h3>
+                                <p>Diciembre 1, 2024</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="fade-left"></div>
+                    <div class="fade-right"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Atletas Section -->
+        <section class="section-atletas home-atletas">
+            <div class="section-intro">
+                <h2 class="section-title">Atletas Destacados</h2>
+                <p class="section-sub">Conoce a los riders que están dominando la escena del downhill mexicano.</p>
+                <div class="wrapper-ver-todo">
+                    <a class="btn-ver-todo" href="atletas.html">VER TODO</a>
+                </div>
+            </div>
+            <div class="athlete-featured-scroll">
+                <a class="athlete-featured-card athlete-bg-1" href="atleta-toti-hope.html" aria-label="Ver atleta Toti Hope">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Toti Hope</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-2" href="atleta-camila-aguilar.html" aria-label="Ver atleta Camila Aguilar">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Camila Aguilar</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-3" href="atleta-kaito-roldan.html" aria-label="Ver atleta Kaito Roldan">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Kaito Roldan</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-4" href="atleta-juan-perez.html" aria-label="Ver atleta Juan Perez">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Juan Perez</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-5" href="atleta-valeria-soto.html" aria-label="Ver atleta Valeria Soto">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Valeria Soto</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-6" href="atleta-diego-ramirez.html" aria-label="Ver atleta Diego Ramirez">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Diego Ramírez</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-7" href="atleta-fernanda-cruz.html" aria-label="Ver atleta Fernanda Cruz">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Fernanda Cruz</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-8" href="atleta-alex-mendoza.html" aria-label="Ver atleta Alex Mendoza">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Alex Mendoza</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-9" href="atleta-luis-leon.html" aria-label="Ver atleta Luis Lucho Leon">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Luis "Lucho" León</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+
+                <a class="athlete-featured-card athlete-bg-10" href="atleta-mariana-torres.html" aria-label="Ver atleta Mariana Torres">
+                    <div class="athlete-featured-media"></div>
+                    <div class="athlete-featured-info">
+                        <div class="athlete-country">🇲🇽 México</div>
+                        <h3 class="athlete-name">Mariana Torres</h3>
+                        <div class="athlete-discipline">Downhill</div>
+                    </div>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Novedades Section -->
+        <section class="section-novedades">
+            <h2 class="novedades-title">Novedades</h2>
+            <!-- copiar imagen aquí: ./media/novedad-bike.jpeg ./media/novedad-podio.jpeg ./media/novedad-salto.jpeg -->
+            <div class="novedades-slider" id="novedades-slider">
+                <div class="novedades-nav">
+                    <button class="novedades-arrow prev" type="button" aria-label="Novedad anterior">‹</button>
+                    <button class="novedades-arrow next" type="button" aria-label="Siguiente novedad">›</button>
+                </div>
+                <a class="novedad-slide is-active" href="novedad-1-bike.html" style="--bg:url('./media/novedad-bike.jpeg')">
+                    <div class="novedad-overlay"></div>
+                    <div class="novedad-content">
+                        <span class="novedad-kicker">CICLISMO</span>
+                        <h3 class="novedad-headline">Novedad Bike: setup ligero para una temporada más rápida</h3>
+                        <p class="novedad-excerpt">Componentes afinados para descensos técnicos: control, rigidez y velocidad real.</p>
+                    </div>
+                </a>
+
+                <a class="novedad-slide" href="novedad-2-podio.html" style="--bg:url('./media/novedad-podio.jpeg')">
+                    <div class="novedad-overlay"></div>
+                    <div class="novedad-content">
+                        <span class="novedad-kicker">COMPETENCIA</span>
+                        <h3 class="novedad-headline">Novedad Podio: champagne y gloria en finales cerrados</h3>
+                        <p class="novedad-excerpt">Rivalidad, respeto y fiesta: el cierre que define una temporada.</p>
+                    </div>
+                </a>
+
+                <a class="novedad-slide" href="novedad-3-salto.html" style="--bg:url('./media/novedad-salto.jpeg')">
+                    <div class="novedad-overlay"></div>
+                    <div class="novedad-content">
+                        <span class="novedad-kicker">FREERIDE</span>
+                        <h3 class="novedad-headline">Novedad Salto: big air que redefine lo posible</h3>
+                        <p class="novedad-excerpt">Una línea gigante, velocidad perfecta y un vuelo que se siente eterno.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="novedades-dots" id="novedades-dots" aria-label="Novedades pagination"></div>
+
+            <div class="wrapper-ver-todo novedades-actions">
+                <a class="btn-ver-todo" href="novedades.html">VER TODO</a>
+            </div>
+        </section>
+
+        <!-- Patrocinadores Section -->
+        <section class="section-patrocinadores">
+            <div class="section-header">
+                <h2 class="section-title">Patrocinadores</h2>
+            </div>
+            <div class="marquee-container">
+                <div class="marquee-track">
+                    <!-- TODO: Reemplazar cada .sponsor con imagen real del patrocinador -->
+                    <div class="sponsor">Orbea</div>
+                    <div class="sponsor">Electrolit</div>
+                    <div class="sponsor">Maxxis</div>
+                    <div class="sponsor">Muc-Off</div>
+                    <div class="sponsor">Crankbrothers</div>
+                    <div class="sponsor">Tannus</div>
+                    <div class="sponsor">FOX</div>
+                    <div class="sponsor">SRAM</div>
+                    <div class="sponsor">Shimano</div>
+                    <div class="sponsor">POC</div>
+                    <!-- Duplicados para loop infinito -->
+                    <div class="sponsor">Orbea</div>
+                    <div class="sponsor">Electrolit</div>
+                    <div class="sponsor">Maxxis</div>
+                    <div class="sponsor">Muc-Off</div>
+                    <div class="sponsor">Crankbrothers</div>
+                    <div class="sponsor">Tannus</div>
+                    <div class="sponsor">FOX</div>
+                    <div class="sponsor">SRAM</div>
+                    <div class="sponsor">Shimano</div>
+                    <div class="sponsor">POC</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <span class="footer-dh">Dh</span><span class="footer-mexico">México</span>
+                </div>
+                <p class="footer-tagline">La comunidad más grande de downhill en México.</p>
+            </div>
+
+            <div class="footer-social-block">
+                <h4 class="footer-title">Social</h4>
+                <div class="footer-icons">
+                    <a class="social-link" href="https://www.instagram.com/downhillmex?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" aria-label="Instagram">
+                        <img src="./media/Instagram.png" alt="Instagram Downhill México">
+                    </a>
+                    <a class="social-link" href="https://www.facebook.com/copanacionaldownhill2016?locale=es_LA" target="_blank" rel="noopener" aria-label="Facebook">
+                        <img src="./media/Facebook.png" alt="Facebook Downhill México">
+                    </a>
+                    <a class="social-link" href="https://github.com/login" target="_blank" rel="noopener" aria-label="GitHub">
+                        <img src="./media/GitHub_Invertocat_Black.png" alt="GitHub">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2026 Downhill Mexico</p>
+        </div>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="novedades-slider.js"></script>
+    <script>
+        // Carrusel functionality for Carreras and Atletas - Drag only (no buttons)
+        function initCarousel(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            if (!carousel) return;
+            
+            // Get fade elements
+            const wrap = carousel.closest('.carousel-wrap');
+            if (!wrap) return;
+            
+            const fadeLeft = wrap.querySelector('.fade-left');
+            const fadeRight = wrap.querySelector('.fade-right');
+            
+            // Function to update fade visibility
+            function updateFades() {
+                const scrollLeft = carousel.scrollLeft;
+                const scrollWidth = carousel.scrollWidth;
+                const clientWidth = carousel.clientWidth;
+                const isAtStart = scrollLeft <= 0;
+                const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
+                
+                // Fade izquierdo: visible solo cuando scrollLeft > 0
+                if (fadeLeft) {
+                    fadeLeft.style.opacity = isAtStart ? '0' : '1';
+                }
+                
+                // Fade derecho: oculto cuando se llega al final
+                if (fadeRight) {
+                    fadeRight.style.opacity = isAtEnd ? '0' : '1';
+                }
+            }
+            
+            // Update on scroll
+            carousel.addEventListener('scroll', updateFades);
+            
+            // Initial update
+            updateFades();
+            
+            // Update on resize
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(updateFades, 100);
+            });
+            
+            // Drag functionality
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            
+            carousel.addEventListener('mousedown', (e) => {
+                // Don't start drag if clicking on a link
+                if (e.target.closest('a')) return;
+                
+                isDown = true;
+                carousel.style.cursor = 'grabbing';
+                startX = e.pageX - carousel.offsetLeft;
+                scrollLeft = carousel.scrollLeft;
+                carousel.style.userSelect = 'none';
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+                carousel.style.userSelect = 'auto';
+            });
+            
+            carousel.addEventListener('mouseup', () => {
+                isDown = false;
+                carousel.style.cursor = 'grab';
+                carousel.style.userSelect = 'auto';
+                updateFades(); // Update after drag ends
+            });
+            
+            carousel.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carousel.offsetLeft;
+                const walk = (x - startX) * 2; // Scroll speed multiplier
+                carousel.scrollLeft = scrollLeft - walk;
+                updateFades(); // Update during drag
+            });
+        }
+        
+        // Initialize both carousels
+        initCarousel('carousel-carreras');
+        initCarousel('carousel-atletas');
+        
+    </script>
+</body>
+</html>

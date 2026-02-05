@@ -1,0 +1,138 @@
+/* Dark theme + reusable athlete card/profile styles */
+:root {
+    --athletes-bg: #0e0e0e;
+    --card-bg: #141414;
+    --muted: #bdbdbd;
+    --accent: #e10600; /* requested red accent */
+    --glass: rgba(255,255,255,0.03);
+    --transition-fast: 0.25s ease;
+}
+
+body.page-atletas {
+    background: var(--athletes-bg);
+    color: #ffffff;
+}
+
+/* Collapse site hero on atletas pages so content appears immediately */
+.page-atletas .hero {
+    min-height: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: transparent !important;
+}
+
+/* Ensure the fixed navbar does not cover page content: add top spacing equal to navbar height */
+.page-atletas main,
+.page-atletas .profile-wrap,
+.page-atletas .atletas-hero {
+    padding-top: calc(var(--nav-h,72px) + 24px); /* reserve space for fixed navbar */
+}
+
+/* Reduce extra vertical padding so headings appear immediately below navbar */
+.page-atletas .atletas-hero { padding: calc(var(--nav-h,72px) + 8px) 5% 12px !important; }
+.page-atletas .profile-wrap { padding-top: calc(var(--nav-h,72px) + 16px) !important; padding-bottom: 40px !important; }
+
+/* Use scroll-margin so anchors land below navbar */
+.page-atletas .section-title,
+.page-atletas h1,
+.profile-card { scroll-margin-top: calc(var(--nav-h,72px) + 16px); }
+
+/* Give navbar a subtle dark background on atletas pages for contrast */
+.page-atletas .navbar {
+    background: rgba(14,14,14,0.95);
+    backdrop-filter: none;
+}
+
+/* Navbar: highlight active link */
+.nav-menu a.active {
+    background: rgba(230,57,70,0.12);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(230,57,70,0.08);
+}
+
+/* Listing page layout */
+.atletas-hero {
+    padding: 80px 5% 40px;
+    text-align: center;
+    color: #fff;
+}
+.atletas-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.atletas-hero p.sub {
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+.atletas-grid {
+    display: grid;
+    gap: 24px;
+    padding: 30px 5% 80px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 992px) {
+    .atletas-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .atletas-grid { grid-template-columns: 1fr; padding: 20px 5% 60px; }
+    .atletas-hero h1 { font-size: 2.2rem; }
+}
+
+.atleta-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: var(--card-bg);
+    padding: 22px 18px;
+    border-radius: 12px;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    cursor: pointer;
+    text-align: center;
+}
+.atleta-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+.atleta-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--accent);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+.atleta-name { font-size: 1.05rem; font-weight: 700; color: #fff; }
+.atleta-team { font-size: 0.9rem; color: var(--muted); }
+
+/* Profile page layout */
+.profile-wrap { padding: 50px 5% 80px; color: #fff; }
+.profile-card { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 420px 1fr; gap: 40px; }
+@media (max-width: 900px) { .profile-card { grid-template-columns: 1fr; } }
+
+.profile-photo-large {
+    width: 360px; height: 360px; margin: 0 auto; border-radius: 50%;
+    border: 6px solid var(--accent); background-size: cover; background-position: center;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.7);
+}
+
+.profile-info { background: var(--card-bg); padding: 28px; border-radius: 12px; }
+.profile-info h2 { margin: 0 0 6px 0; font-size: 2rem; }
+.profile-info p.team { color: var(--muted); margin-bottom: 16px; }
+
+.profile-section { padding: 14px 0; border-top: 1px solid rgba(255,255,255,0.03); }
+.profile-section:first-of-type { border-top: none; }
+.profile-section h3 { margin: 0 0 8px 0; display:flex; gap:10px; align-items:center; font-size:1rem; }
+.profile-section p { color: #ddd; margin: 0; line-height:1.6 }
+
+/* small icon placeholder */
+.icon-dot { width:18px; height:18px; display:inline-block; border-radius:4px; background:var(--accent); }
+
+/* entrance animation */
+.reveal { opacity: 0; transform: translateY(12px); transition: opacity 0.45s ease, transform 0.45s ease; }
+.reveal.in { opacity: 1; transform: translateY(0); }

@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standings - Downhill México</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="standings.css">
+</head>
+<body class="page-dark page-standings has-nav-padding">
+    <nav class="rb-nav" aria-label="Navegación principal">
+        <div class="rb-nav-row">
+            <a class="rb-logo" href="index.html" aria-label="Inicio">
+                <span class="brand-dh">DH</span><span class="brand-mexico">mexico</span>
+            </a>
+            <div class="rb-pill">
+                <div class="rb-menu">
+                    <a class="rb-item" href="index.html#top">Inicio</a>
+                    <a class="rb-item" href="eventos.html">Eventos</a>
+                    <a class="rb-item" href="standings.html">Standings</a>
+                    <a class="rb-item" href="atletas.html">Atletas</a>
+                    <a class="rb-item" href="nosotros.html">Nosotros</a>
+                </div>
+            </div>
+            <div class="rb-actions">
+                <a class="rb-login-btn" href="perfil.html">INICIAR SESIÓN</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="standings-page">
+    <header class="standings-hero">
+        <div class="standings-hero__media" aria-hidden="true"></div>
+        <div class="standings-hero__overlay"></div>
+        <div class="standings-hero__content">
+            <h1 class="standings-title">Ranking Nacional Pro-Series</h1>
+            <p class="standings-sub">La élite del downhill mexicano. Clasificaciones actualizadas después de cada evento.</p>
+        </div>
+    </header>
+
+    <section class="standings-controls">
+        <div class="standings-tabs" role="tablist" aria-label="Categorías de ranking">
+            <button class="tab is-active" data-cat="elite" role="tab" aria-selected="true">Elite Varonil</button>
+            <button class="tab" data-cat="femenil-elite" role="tab" aria-selected="false">Elite Femenil</button>
+            <button class="tab" data-cat="junior" role="tab" aria-selected="false">Junior Varonil</button>
+            <button class="tab" data-cat="infantil" role="tab" aria-selected="false">Cadetes</button>
+            <button class="tab" data-cat="master-a" role="tab" aria-selected="false">Master 30</button>
+            <button class="tab" data-cat="master-b" role="tab" aria-selected="false">Master 40</button>
+            <button class="tab" data-cat="master-c" role="tab" aria-selected="false">Master 50</button>
+        </div>
+    </section>
+
+    <section class="standings-table-wrap">
+        <div class="standings-card">
+            <table class="standings-table">
+                <colgroup>
+                    <col style="width: 70px;">
+                    <col style="width: 220px;">
+                    <col style="width: 120px;">
+                    <col style="width: 120px;">
+                    <col style="width: 120px;">
+                    <col style="width: 120px;">
+                    <col style="width: 100px;">
+                    <col style="width: 110px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Atleta</th>
+                        <th>Anteriores</th>
+                        <th class="race-header" data-race="0">Carrera 1</th>
+                        <th class="race-header" data-race="1">Carrera 2</th>
+                        <th class="race-header" data-race="2">Carrera 3</th>
+                        <th>Cambio</th>
+                        <th class="is-right">Puntos</th>
+                    </tr>
+                </thead>
+                <tbody id="standingsBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="victory-section">
+        <div class="victory-glow" aria-hidden="true"></div>
+        <div class="victory-content">
+            <p class="victory-eyebrow">Domina la montaña</p>
+            <h2 class="victory-title">La victoria no se hereda, se arranca.</h2>
+            <p class="victory-copy">
+                Cada línea es un duelo. Cada curva, un juicio. Aquí no gana el que espera:
+                gana el que decide. Corre duro, cae rápido, levántate más rápido.
+            </p>
+            <div class="victory-actions">
+                <a class="victory-btn" href="eventos.html"><span>Próxima batalla</span></a>
+                <a class="victory-btn" href="atletas.html"><span>Conoce a los líderes</span></a>
+            </div>
+        </div>
+    </section>
+</main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-copyright">Copyright Downhill México</p>
+        <div class="footer-social">
+            <a href="#" class="social-icon instagram" aria-label="Instagram">
+                &#x1F4F7;
+            </a>
+            <a href="#" class="social-icon facebook" aria-label="Facebook">
+                &#x1F4D8;
+            </a>
+        </div>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabaseClient.js"></script>
+    <script src="./js/standingsSupabase.js"></script>
+</body>
+</html>
+
+
+
+
+
+

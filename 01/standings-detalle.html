@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standings - Categoría - Downhill México</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-light page-dark">
+    <!-- Navigation Bar injected by navbar.js -->
+
+    <!-- Main Content -->
+    <main class="standings-page">
+        <!-- Hero Section -->
+        <section class="standings-hero">
+            <div class="standings-hero-overlay"></div>
+            <div class="standings-hero-content">
+                <h1 class="standings-hero-title">Donde los grandes se levantan</h1>
+                <p class="standings-hero-subtitle">El ranking definitivo de los mejores pilotos</p>
+            </div>
+        </section>
+
+        <div class="standings-layout">
+            <!-- Sidebar -->
+            <aside class="standings-sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="standings.html" class="sidebar-link back-link">
+                        <span class="back-text">VOLVER</span>
+                    </a></li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="standings-content">
+                <div id="view-detalle" class="standings-view view-active">
+                    <h1 class="standings-title" id="categoria-titulo">Standings - Elite</h1>
+                    
+                    <!-- Tabla Detalle -->
+                    <div class="standings-category" id="categoria-detalle">
+                        <div class="standings-table-wrapper">
+                            <table class="standings-table" id="tabla-detalle">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th>Nombre</th>
+                                        <th>Round 1<br><span class="sub-header">Puntos</span></th>
+                                        <th>Round 2<br><span class="sub-header">Puntos</span></th>
+                                        <th>Round 3<br><span class="sub-header">Puntos</span></th>
+                                        <th class="text-right">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tabla-detalle-body">
+                                    <!-- Los datos se cargarán aquí con JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-copyright">Copyright Downhill México</p>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script src="nav-offset.js"></script>
+    <script src="site.js"></script>
+    <script>
+        // Datos de todas las categorías
+        const datosCategories = {
+            elite: {
+                title: "Elite",
+                data: [
+                    { pos: "1°", nombre: "Carlos Mendoza", r1: 20, r2: 25, r3: 25, total: 70 },
+                    { pos: "2°", nombre: "Diego Ramírez", r1: 25, r2: 16, r3: 20, total: 61 },
+                    { pos: "3°", nombre: "Roberto Silva", r1: 16, r2: 20, r3: 16, total: 52 },
+                    { pos: "4°", nombre: "Fernando Cruz", r1: 13, r2: 13, r3: 13, total: 39 },
+                    { pos: "5°", nombre: "Javier López", r1: 10, r2: 10, r3: 10, total: 30 },
+                    { pos: "6°", nombre: "Marco Sánchez", r1: 8, r2: 8, r3: 8, total: 24 },
+                    { pos: "7°", nombre: "Luis García", r1: 6, r2: 6, r3: 6, total: 18 },
+                    { pos: "8°", nombre: "David López", r1: 6, r2: 6, r3: 6, total: 18 }
+                ]
+            },
+            infantil: {
+                title: "Infantil",
+                data: [
+                    { pos: "1°", nombre: "Javier Torres", r1: 25, r2: 20, r3: 25, total: 70 },
+                    { pos: "2°", nombre: "Andrés López", r1: 20, r2: 25, r3: 20, total: 65 },
+                    { pos: "3°", nombre: "Emilio García", r1: 16, r2: 16, r3: 16, total: 48 },
+                    { pos: "4°", nombre: "Miguel Sánchez", r1: 13, r2: 13, r3: 13, total: 39 },
+                    { pos: "5°", nombre: "Pablo Rodríguez", r1: 10, r2: 10, r3: 10, total: 30 },
+                    { pos: "6°", nombre: "Carlos Martínez", r1: 8, r2: 8, r3: 8, total: 24 }
+                ]
+            },
+            "femenil-elite": {
+                title: "Femenil Elite",
+                data: [
+                    { pos: "1°", nombre: "Camila Aguilar", r1: 25, r2: 25, r3: 20, total: 70 },
+                    { pos: "2°", nombre: "Valeria Soto", r1: 20, r2: 20, r3: 25, total: 65 },
+                    { pos: "3°", nombre: "Fernanda Cruz", r1: 16, r2: 16, r3: 16, total: 48 },
+                    { pos: "4°", nombre: "Mariana Torres", r1: 13, r2: 13, r3: 13, total: 39 },
+                    { pos: "5°", nombre: "Sofia Mendoza", r1: 10, r2: 10, r3: 10, total: 30 },
+                    { pos: "6°", nombre: "Laura García", r1: 8, r2: 8, r3: 8, total: 24 }
+                ]
+            },
+            junior: {
+                title: "Junior",
+                data: [
+                    { pos: "1°", nombre: "Kaito Roldan", r1: 25, r2: 25, r3: 25, total: 75 },
+                    { pos: "2°", nombre: "Alex Mendoza", r1: 20, r2: 20, r3: 20, total: 60 },
+                    { pos: "3°", nombre: "Luis \"Lucho\" León", r1: 16, r2: 16, r3: 16, total: 48 },
+                    { pos: "4°", nombre: "Ricardo Vargas", r1: 13, r2: 13, r3: 13, total: 39 },
+                    { pos: "5°", nombre: "Jorge Pérez", r1: 10, r2: 10, r3: 10, total: 30 },
+                    { pos: "6°", nombre: "Sergio López", r1: 8, r2: 8, r3: 8, total: 24 }
+                ]
+            },
+            "master-a": {
+                title: "Master A",
+                data: [
+                    { pos: "1°", nombre: "Francisco Javier", r1: 20, r2: 25, r3: 25, total: 70 },
+                    { pos: "2°", nombre: "Tomás Ruiz", r1: 25, r2: 20, r3: 20, total: 65 },
+                    { pos: "3°", nombre: "Raúl Hernández", r1: 16, r2: 16, r3: 16, total: 48 },
+                    { pos: "4°", nombre: "Manuel Díaz", r1: 13, r2: 13, r3: 13, total: 39 },
+                    { pos: "5°", nombre: "Javier Ortiz", r1: 10, r2: 10, r3: 10, total: 30 },
+                    { pos: "6°", nombre: "Oscar Flores", r1: 8, r2: 8, r3: 8, total: 24 }
+                ]
+            },
+            "master-b": {
+                title: "Master B",
+                data: [
+                    { pos: "1°", nombre: "Manuel Rodríguez", r1: 20, r2: 25, r3: 25, total: 70 },
+                    { pos: "2°", nombre: "Francisco Gómez", r1: 25, r2: 20, r3: 20, total: 65 },
+                    { pos: "3°", nombre: "José Morales", r1: 16, r2: 16, r3: 16, total: 48 },
+                    { pos: "4°", nombre: "Eduardo Pacheco", r1: 13, r2: 13, r3: 13, total: 39 },
+                    { pos: "5°", nombre: "Ramón García", r1: 10, r2: 10, r3: 10, total: 30 },
+                    { pos: "6°", nombre: "Antonio López", r1: 8, r2: 8, r3: 8, total: 24 }
+                ]
+            },
+            "master-c": {
+                title: "Master C",
+                data: [
+                    { pos: "1°", nombre: "Alberto Sánchez", r1: 25, r2: 25, r3: 20, total: 70 },
+                    { pos: "2°", nombre: "Enrique Vargas", r1: 20, r2: 20, r3: 25, total: 65 },
+                    { pos: "3°", nombre: "Óscar Jiménez", r1: 16, r2: 16, r3: 16, total: 48 },
+                    { pos: "4°", nombre: "Jorge Ramírez", r1: 13, r2: 13, r3: 13, total: 39 },
+                    { pos: "5°", nombre: "Gabriel Pérez", r1: 10, r2: 10, r3: 10, total: 30 },
+                    { pos: "6°", nombre: "Miguel Hernández", r1: 8, r2: 8, r3: 8, total: 24 }
+                ]
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', function(){
+            // Obtener parámetro de categoría
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoria = urlParams.get('categoria') || 'elite';
+
+            const datos = datosCategories[categoria];
+            
+            if (datos) {
+                // Actualizar título
+                document.getElementById('categoria-titulo').textContent = `Standings - ${datos.title}`;
+                document.title = `${datos.title} - Standings - Downhill México`;
+
+                // Llenar tabla
+                const tbody = document.getElementById('tabla-detalle-body');
+                tbody.innerHTML = '';
+                
+                datos.data.forEach((fila, index) => {
+                    const tr = document.createElement('tr');
+                    if (index === 0) {
+                        tr.classList.add('primer-lugar');
+                    }
+                    tr.innerHTML = `
+                        <td>${fila.pos}</td>
+                        <td><span>${fila.nombre}</span></td>
+                        <td><span class="fin">${fila.r1}</span></td>
+                        <td><span class="fin">${fila.r2}</span></td>
+                        <td><span class="fin">${fila.r3}</span></td>
+                        <td class="text-right total">${fila.total}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Category - Downhill México</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-light page-dark">
+    <!-- Navigation Bar injected by navbar.js -->
+
+    <!-- Main Content -->
+    <main class="standings-page">
+        <!-- Hero Section -->
+        <section class="standings-hero">
+            <div class="standings-hero-overlay"></div>
+            <div class="standings-hero-content">
+                <h1 class="standings-hero-title">Resultados por Carrera</h1>
+                <p class="standings-hero-subtitle">Puntuaciones detalladas de cada categoría</p>
+            </div>
+        </section>
+
+        <div class="standings-layout">
+            <!-- Sidebar -->
+            <aside class="standings-sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="standings.html" class="sidebar-link back-link">
+                        <span class="back-text">VOLVER</span>
+                    </a></li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="standings-content">
+                <div id="view-race-category" class="standings-view view-active">
+                    <h1 class="standings-title" id="race-category-title">Cargando...</h1>
+
+                    <!-- Tabla de Resultados -->
+                    <div class="standings-category">
+                        <div class="standings-table-wrapper">
+                            <table class="standings-table" id="race-category-table">
+                                <thead>
+                                    <tr>
+                                        <th>Pos</th>
+                                        <th>Nombre</th>
+                                        <th>Puntos</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="race-category-body">
+                                    <!-- Los datos se cargarán aquí con JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-copyright">Copyright Downhill México</p>
+    </footer>
+
+    <script src="navbar.js"></script>
+    <script>
+        // Datos compartidos de carreras pasadas
+        const pastRaceData = {
+            'ajusco-2023': {
+                name: 'Ajusco',
+                date: 'Enero 15, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Carlos Mendoza', time: '1:45.23' },
+                        { pos: 2, name: 'Diego Ramírez', time: '1:46.12' },
+                        { pos: 3, name: 'Roberto Silva', time: '1:47.45' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Javier Torres', time: '2:15.34' },
+                        { pos: 2, name: 'Andrés López', time: '2:16.89' },
+                        { pos: 3, name: 'Emilio García', time: '2:17.23' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Camila Aguilar', time: '1:52.34' },
+                        { pos: 2, name: 'Valeria Soto', time: '1:53.45' },
+                        { pos: 3, name: 'Fernanda Cruz', time: '1:54.67' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Kaito Roldan', time: '1:58.23' },
+                        { pos: 2, name: 'Alex Mendoza', time: '1:59.34' },
+                        { pos: 3, name: 'Luis "Lucho" León', time: '2:00.12' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Juan Pérez', time: '2:05.45' },
+                        { pos: 2, name: 'Pedro Martínez', time: '2:06.78' },
+                        { pos: 3, name: 'Raúl Hernández', time: '2:07.12' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'Manuel Rodríguez', time: '2:12.34' },
+                        { pos: 2, name: 'Francisco Gómez', time: '2:13.67' },
+                        { pos: 3, name: 'José Morales', time: '2:14.89' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Alberto Sánchez', time: '2:18.45' },
+                        { pos: 2, name: 'Enrique Vargas', time: '2:19.67' },
+                        { pos: 3, name: 'Óscar Jiménez', time: '2:20.12' }
+                    ]
+                }
+            },
+            'guanajuato-2023': {
+                name: 'Guanajuato',
+                date: 'Marzo 20, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Diego Ramírez', time: '1:44.12' },
+                        { pos: 2, name: 'Carlos Mendoza', time: '1:45.89' },
+                        { pos: 3, name: 'Roberto Silva', time: '1:46.34' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Andrés López', time: '2:14.23' },
+                        { pos: 2, name: 'Javier Torres', time: '2:15.67' },
+                        { pos: 3, name: 'Emilio García', time: '2:16.45' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Valeria Soto', time: '1:50.45' },
+                        { pos: 2, name: 'Camila Aguilar', time: '1:51.23' },
+                        { pos: 3, name: 'Fernanda Cruz', time: '1:52.89' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Alex Mendoza', time: '1:57.67' },
+                        { pos: 2, name: 'Kaito Roldan', time: '1:58.45' },
+                        { pos: 3, name: 'Luis "Lucho" León', time: '1:59.12' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Pedro Martínez', time: '2:03.89' },
+                        { pos: 2, name: 'Juan Pérez', time: '2:04.23' },
+                        { pos: 3, name: 'Raúl Hernández', time: '2:05.45' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'Francisco Gómez', time: '2:11.23' },
+                        { pos: 2, name: 'Manuel Rodríguez', time: '2:12.67' },
+                        { pos: 3, name: 'José Morales', time: '2:13.45' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Enrique Vargas', time: '2:17.34' },
+                        { pos: 2, name: 'Alberto Sánchez', time: '2:18.89' },
+                        { pos: 3, name: 'Óscar Jiménez', time: '2:19.23' }
+                    ]
+                }
+            },
+            'atlixco-2023': {
+                name: 'Atlixco',
+                date: 'Mayo 10, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Roberto Silva', time: '1:43.12' },
+                        { pos: 2, name: 'Carlos Mendoza', time: '1:44.56' },
+                        { pos: 3, name: 'Diego Ramírez', time: '1:45.78' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Emilio García', time: '2:15.78' },
+                        { pos: 2, name: 'Javier Torres', time: '2:16.34' },
+                        { pos: 3, name: 'Andrés López', time: '2:17.12' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Camila Aguilar', time: '1:49.89' },
+                        { pos: 2, name: 'Fernanda Cruz', time: '1:52.12' },
+                        { pos: 3, name: 'Valeria Soto', time: '1:53.45' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Luis "Lucho" León', time: '1:57.45' },
+                        { pos: 2, name: 'Kaito Roldan', time: '1:58.23' },
+                        { pos: 3, name: 'Alex Mendoza', time: '1:59.67' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Raúl Hernández', time: '2:05.89' },
+                        { pos: 2, name: 'Juan Pérez', time: '2:06.34' },
+                        { pos: 3, name: 'Pedro Martínez', time: '2:07.12' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'José Morales', time: '2:11.67' },
+                        { pos: 2, name: 'Manuel Rodríguez', time: '2:12.89' },
+                        { pos: 3, name: 'Francisco Gómez', time: '2:13.34' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Óscar Jiménez', time: '2:17.45' },
+                        { pos: 2, name: 'Enrique Vargas', time: '2:18.67' },
+                        { pos: 3, name: 'Alberto Sánchez', time: '2:19.23' }
+                    ]
+                }
+            },
+            'valle-bravo-2023': {
+                name: 'Valle de Bravo',
+                date: 'Junio 2, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Carlos Mendoza', time: '1:41.89' },
+                        { pos: 2, name: 'Diego Ramírez', time: '1:42.45' },
+                        { pos: 3, name: 'Roberto Silva', time: '1:43.12' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Javier Torres', time: '2:13.45' },
+                        { pos: 2, name: 'Andrés López', time: '2:14.67' },
+                        { pos: 3, name: 'Emilio García', time: '2:15.78' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Valeria Soto', time: '1:50.45' },
+                        { pos: 2, name: 'Camila Aguilar', time: '1:51.23' },
+                        { pos: 3, name: 'Fernanda Cruz', time: '1:52.89' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Kaito Roldan', time: '1:55.12' },
+                        { pos: 2, name: 'Alex Mendoza', time: '1:56.89' },
+                        { pos: 3, name: 'Luis "Lucho" León', time: '1:57.45' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Juan Pérez', time: '2:03.67' },
+                        { pos: 2, name: 'Pedro Martínez', time: '2:04.23' },
+                        { pos: 3, name: 'Raúl Hernández', time: '2:05.89' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'Manuel Rodríguez', time: '2:09.45' },
+                        { pos: 2, name: 'Francisco Gómez', time: '2:10.78' },
+                        { pos: 3, name: 'José Morales', time: '2:11.67' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Alberto Sánchez', time: '2:16.12' },
+                        { pos: 2, name: 'Enrique Vargas', time: '2:15.89' },
+                        { pos: 3, name: 'Óscar Jiménez', time: '2:17.45' }
+                    ]
+                }
+            },
+            'taxco-urbano-2023': {
+                name: 'Taxco Urbano',
+                date: 'Julio 13, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Diego Ramírez', time: '1:42.15' },
+                        { pos: 2, name: 'Carlos Mendoza', time: '1:43.45' },
+                        { pos: 3, name: 'Roberto Silva', time: '1:44.12' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Andrés López', time: '2:14.89' },
+                        { pos: 2, name: 'Javier Torres', time: '2:15.34' },
+                        { pos: 3, name: 'Emilio García', time: '2:16.12' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Camila Aguilar', time: '1:50.12' },
+                        { pos: 2, name: 'Valeria Soto', time: '1:51.45' },
+                        { pos: 3, name: 'Fernanda Cruz', time: '1:52.67' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Alex Mendoza', time: '1:56.45' },
+                        { pos: 2, name: 'Kaito Roldan', time: '1:57.23' },
+                        { pos: 3, name: 'Luis "Lucho" León', time: '1:58.34' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Pedro Martínez', time: '2:04.12' },
+                        { pos: 2, name: 'Juan Pérez', time: '2:05.45' },
+                        { pos: 3, name: 'Raúl Hernández', time: '2:06.78' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'Francisco Gómez', time: '2:10.89' },
+                        { pos: 2, name: 'Manuel Rodríguez', time: '2:11.23' },
+                        { pos: 3, name: 'José Morales', time: '2:12.45' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Enrique Vargas', time: '2:16.89' },
+                        { pos: 2, name: 'Alberto Sánchez', time: '2:17.34' },
+                        { pos: 3, name: 'Óscar Jiménez', time: '2:18.67' }
+                    ]
+                }
+            },
+            'puebla-dh-2023': {
+                name: 'Puebla DH',
+                date: 'Septiembre 7, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Carlos Mendoza', time: '1:42.98' },
+                        { pos: 2, name: 'Roberto Silva', time: '1:43.67' },
+                        { pos: 3, name: 'Diego Ramírez', time: '1:44.23' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Javier Torres', time: '2:14.23' },
+                        { pos: 2, name: 'Emilio García', time: '2:15.45' },
+                        { pos: 3, name: 'Andrés López', time: '2:16.67' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Fernanda Cruz', time: '1:52.12' },
+                        { pos: 2, name: 'Camila Aguilar', time: '1:53.23' },
+                        { pos: 3, name: 'Valeria Soto', time: '1:54.45' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Kaito Roldan', time: '1:57.34' },
+                        { pos: 2, name: 'Luis "Lucho" León', time: '1:58.67' },
+                        { pos: 3, name: 'Alex Mendoza', time: '1:59.23' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Juan Pérez', time: '2:04.56' },
+                        { pos: 2, name: 'Raúl Hernández', time: '2:05.23' },
+                        { pos: 3, name: 'Pedro Martínez', time: '2:06.12' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'Manuel Rodríguez', time: '2:10.45' },
+                        { pos: 2, name: 'José Morales', time: '2:11.67' },
+                        { pos: 3, name: 'Francisco Gómez', time: '2:12.34' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Alberto Sánchez', time: '2:16.45' },
+                        { pos: 2, name: 'Óscar Jiménez', time: '2:17.89' },
+                        { pos: 3, name: 'Enrique Vargas', time: '2:18.23' }
+                    ]
+                }
+            },
+            'tepoztlan-2023': {
+                name: 'Tepoztlán',
+                date: 'Octubre 12, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Roberto Silva', time: '1:43.12' },
+                        { pos: 2, name: 'Carlos Mendoza', time: '1:44.45' },
+                        { pos: 3, name: 'Diego Ramírez', time: '1:45.67' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Andrés López', time: '2:13.89' },
+                        { pos: 2, name: 'Javier Torres', time: '2:14.56' },
+                        { pos: 3, name: 'Emilio García', time: '2:15.23' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Valeria Soto', time: '1:51.23' },
+                        { pos: 2, name: 'Camila Aguilar', time: '1:52.45' },
+                        { pos: 3, name: 'Fernanda Cruz', time: '1:53.67' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Alex Mendoza', time: '1:56.89' },
+                        { pos: 2, name: 'Kaito Roldan', time: '1:57.45' },
+                        { pos: 3, name: 'Luis "Lucho" León', time: '1:58.12' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Pedro Martínez', time: '2:03.89' },
+                        { pos: 2, name: 'Juan Pérez', time: '2:04.67' },
+                        { pos: 3, name: 'Raúl Hernández', time: '2:05.23' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'Francisco Gómez', time: '2:09.67' },
+                        { pos: 2, name: 'Manuel Rodríguez', time: '2:10.23' },
+                        { pos: 3, name: 'José Morales', time: '2:11.45' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Enrique Vargas', time: '2:15.89' },
+                        { pos: 2, name: 'Alberto Sánchez', time: '2:16.34' },
+                        { pos: 3, name: 'Óscar Jiménez', time: '2:17.67' }
+                    ]
+                }
+            },
+            'zacatlan-2023': {
+                name: 'Zacatlán',
+                date: 'Diciembre 1, 2023',
+                categories: {
+                    'elite': [
+                        { pos: 1, name: 'Carlos Mendoza', time: '1:41.89' },
+                        { pos: 2, name: 'Diego Ramírez', time: '1:42.45' },
+                        { pos: 3, name: 'Roberto Silva', time: '1:43.12' }
+                    ],
+                    'infantil': [
+                        { pos: 1, name: 'Javier Torres', time: '2:13.45' },
+                        { pos: 2, name: 'Andrés López', time: '2:14.67' },
+                        { pos: 3, name: 'Emilio García', time: '2:15.78' }
+                    ],
+                    'femenil-elite': [
+                        { pos: 1, name: 'Camila Aguilar', time: '1:49.89' },
+                        { pos: 2, name: 'Valeria Soto', time: '1:50.45' },
+                        { pos: 3, name: 'Fernanda Cruz', time: '1:52.12' }
+                    ],
+                    'junior': [
+                        { pos: 1, name: 'Kaito Roldan', time: '1:55.12' },
+                        { pos: 2, name: 'Alex Mendoza', time: '1:56.89' },
+                        { pos: 3, name: 'Luis "Lucho" León', time: '1:57.45' }
+                    ],
+                    'master-a': [
+                        { pos: 1, name: 'Juan Pérez', time: '2:03.67' },
+                        { pos: 2, name: 'Pedro Martínez', time: '2:04.23' },
+                        { pos: 3, name: 'Raúl Hernández', time: '2:05.89' }
+                    ],
+                    'master-b': [
+                        { pos: 1, name: 'Manuel Rodríguez', time: '2:09.45' },
+                        { pos: 2, name: 'Francisco Gómez', time: '2:10.78' },
+                        { pos: 3, name: 'José Morales', time: '2:11.67' }
+                    ],
+                    'master-c': [
+                        { pos: 1, name: 'Alberto Sánchez', time: '2:16.12' },
+                        { pos: 2, name: 'Enrique Vargas', time: '2:15.89' },
+                        { pos: 3, name: 'Óscar Jiménez', time: '2:17.45' }
+                    ]
+                }
+            }
+        };
+
+        // Función para convertir posición a puntos
+        function getPointsForPosition(position) {
+            const pointsMap = {
+                1: 25, 2: 20, 3: 16, 4: 13, 5: 11,
+                6: 10, 7: 9, 8: 8, 9: 7, 10: 6,
+                11: 5, 12: 5, 13: 4, 14: 4, 15: 3,
+                16: 3, 17: 2, 18: 2, 19: 1, 20: 1
+            };
+            return pointsMap[position] || 1;
+        }
+
+        document.addEventListener('DOMContentLoaded', function(){
+            // Obtener parámetros de la URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const raceId = urlParams.get('race');
+            const categoria = urlParams.get('categoria');
+
+            const categoryNames = {
+                'elite': 'Elite',
+                'infantil': 'Infantil',
+                'femenil-elite': 'Femenil Elite',
+                'junior': 'Junior',
+                'master-a': 'Master A',
+                'master-b': 'Master B',
+                'master-c': 'Master C'
+            };
+
+            if (raceId && categoria && pastRaceData[raceId] && pastRaceData[raceId].categories[categoria]) {
+                const race = pastRaceData[raceId];
+                const categoryData = race.categories[categoria];
+                const catName = categoryNames[categoria] || categoria;
+
+                // Actualizar título
+                document.getElementById('race-category-title').textContent = `${race.name} - ${catName}`;
+                document.title = `${race.name} - ${catName} - Downhill México`;
+
+                // Llenar tabla
+                const tbody = document.getElementById('race-category-body');
+                tbody.innerHTML = '';
+
+                categoryData.forEach((rider, index) => {
+                    const tr = document.createElement('tr');
+                    if (index === 0) {
+                        tr.classList.add('primer-lugar');
+                    }
+                    const points = getPointsForPosition(rider.pos);
+                    tr.innerHTML = `
+                        <td>${rider.pos}°</td>
+                        <td><span>${rider.name}</span></td>
+                        <td class="text-right total">${points}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            } else {
+                // Error handling
+                document.getElementById('race-category-title').textContent = 'Carrera o categoría no encontrada';
+                document.getElementById('race-category-body').innerHTML = '<tr><td colspan="3">Datos no disponibles</td></tr>';
+            }
+
+            // Marcar nav item activo
+            document.querySelectorAll('.nav-menu a').forEach(a=>{
+                if (a.getAttribute('href') === 'standings.html') a.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
