@@ -44,7 +44,7 @@
           <tr>
             <td>${formatValue(rank)}</td>
             <td>${formatValue(row.atleta)}</td>
-            <td>${formatValue(row.anterior_rank)}</td>
+            <td>${formatValue(row.anteriores)}</td>
             <td>${formatValue(row.carrera_1)}</td>
             <td>${formatValue(row.carrera_2)}</td>
             <td>${formatValue(row.carrera_3)}</td>

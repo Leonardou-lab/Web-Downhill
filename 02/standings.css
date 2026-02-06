@@ -13,12 +13,14 @@ body.page-standings .standings-page {
 
 body.page-standings .standings-hero {
     position: relative;
-    height: 420px;
+    height: 520px; /* Aumenté la altura */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     margin-bottom: 32px;
+    margin-top: calc(-1 * var(--nav-h)); /* Mueve la imagen hacia arriba */
+    padding-top: var(--nav-h); /* Compensa para el contenido */
 }
 
 body.page-standings .standings-hero__media {
@@ -51,10 +53,14 @@ body.page-standings .standings-title {
 
 body.page-standings .standings-sub {
     margin: 0 auto;
-    max-width: 720px;
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 1.25rem;
-    font-weight: 700;
+    max-width: 60ch;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    line-height: 1.6;
 }
 
 body.page-standings .standings-controls {
@@ -375,4 +381,11 @@ body.page-standings .victory-btn span {
 body.page-standings .victory-btn:hover span {
     transform: skewX(15deg) translateX(26px);
     color: #000000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body.page-standings .standings-hero {
+        height: 450px;
+    }
 }

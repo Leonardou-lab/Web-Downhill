@@ -794,78 +794,6 @@ body:not(.page-home) .section-title {
     flex-shrink: 0;
 }
 
-/* Card Background Placeholders - 10 eventos */
-.card-ajusco {
-    background-image: url("./media/Ajusco_nieve.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-
-.card-guanajuato {
-    background-image: url("./media/Guanajuato1-700x394.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-atlixco {
-    background-image: url("./media/Atlixco.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-valle-bravo {
-    background-image: url("./media/Valle-de-Bravo-2.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-taxco {
-    background-image: url("./media/taxco_mexico.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-san-cristobal {
-    background-image: url("./media/San_cristobal.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-puebla {
-    background-image: url("./media/Puebla.avif");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-tepoztlan {
-    background-image: url("./media/Tepoztlan.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-monterrey {
-    background-image: url("./media/monterrey_dh.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.card-zacatlan {
-    background-image: url("./media/Zacatlan.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 .card-info {
     flex: 1;
     display: flex;
@@ -1438,55 +1366,6 @@ body:not(.page-eventos) .events-page {
     background-size: cover;
     background-position: center;
     flex-shrink: 0;
-}
-
-/* Placeholder gradients para imágenes de eventos */
-.event-img-1 {
-    background-image: url("./media/Ajusco_nieve.jpg");
-}
-
-.event-img-2 {
-    background-image: url("./media/Guanajuato1-700x394.png");
-}
-
-.event-img-3 {
-    background-image: url("./media/Atlixco.jpg");
-}
-
-.event-img-4 {
-    background-image: url("./media/Valle-de-Bravo-2.jpeg");
-}
-
-.event-img-5 {
-    background-image: url("./media/taxco_mexico.jpg");
-}
-
-.event-img-6 {
-    background-image: url("./media/San_cristobal.webp");
-}
-
-.event-img-7 {
-    background-image: url("./media/Puebla.avif");
-}
-
-.event-img-8 {
-    background-image: url("./media/Tepoztlan.webp");
-}
-
-.event-img-9 {
-    background-image: url("./media/monterrey_dh.jpg");
-}
-
-.event-img-10 {
-    background-image: url("./media/Zacatlan.webp");
-}
-
-.event-img-11 {
-    background-image: url("./media/Cuernavaca.webp");
-}
-
-.event-img-12 {
-    background-image: url("./media/toluca.webp");
 }
 
 .event-info {
