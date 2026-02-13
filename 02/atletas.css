@@ -390,6 +390,34 @@ body.athlete-detail .atleta-origin {
         padding: 36px 28px 44px;
     }
 }
+
+@media (max-width: 600px) {
+    .atleta-media {
+        height: 320px;
+    }
+    .atleta-panel {
+        padding: 28px 20px 36px;
+    }
+    .atleta-name {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+    .atleta-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+    }
+    .stat-value {
+        font-size: 1.6rem;
+    }
+    .stat-label {
+        font-size: 0.6rem;
+    }
+    .atleta-bg-id {
+        font-size: 2.4rem;
+    }
+    .atleta-sponsor {
+        font-size: 0.8rem;
+    }
+}
 /* Profile page layout */
 .profile-wrap { padding: 50px 5% 80px; color: #fff; }
 .profile-card { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 420px 1fr; gap: 40px; }

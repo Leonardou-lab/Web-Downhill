@@ -49,3 +49,24 @@ body.page-eventos section:not(.events-page) {
   margin-top: 0;
   padding-top: 0;
 }
+
+/* Responsive: 2 columnas en tablets, 1 en móvil */
+@media (max-width: 980px) {
+  body.page-eventos .events-screen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  body.page-eventos .event-tile {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 600px) {
+  body.page-eventos .events-screen {
+    grid-template-columns: 1fr;
+  }
+
+  body.page-eventos .event-tile {
+    height: 50vh;
+  }
+}

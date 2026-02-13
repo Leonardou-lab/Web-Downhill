@@ -24,11 +24,28 @@
                     <a class="rb-item" href="nosotros.html">Nosotros</a>
                 </div>
             </div>
-            <div class="rb-actions">
+            <button class="rb-hamburger" type="button" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    <div class="rb-actions">
                 <a class="rb-login-btn" href="perfil.html">INICIAR SESIÓN</a>
             </div>
         </div>
     </nav>
+<div class="rb-mobile-overlay"></div>
+<div class="rb-mobile-drawer">
+  <button class="rb-mobile-close" type="button" aria-label="Cerrar menú">&times;</button>
+  <nav class="rb-mobile-menu">
+    <a class="rb-mobile-item" href="index.html">Inicio</a>
+    <a class="rb-mobile-item" href="eventos.html">Eventos</a>
+    <a class="rb-mobile-item" href="standings.html">Standings</a>
+    <a class="rb-mobile-item" href="atletas.html">Atletas</a>
+    <a class="rb-mobile-item" href="nosotros.html">Nosotros</a>
+  </nav>
+  <div class="rb-mobile-actions">
+    <a class="rb-mobile-login" href="perfil.html">INICIAR SESIÓN</a>
+  </div>
+</div>
 
     <!-- Main Content -->
     <main class="standings-page">

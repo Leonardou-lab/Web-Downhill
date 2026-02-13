@@ -124,9 +124,54 @@
   }
 
   // -----------------------------
+  // Mobile drawer
+  // -----------------------------
+  const hamburger = nav.querySelector(".rb-hamburger");
+  const overlay = document.querySelector(".rb-mobile-overlay");
+  const drawer = document.querySelector(".rb-mobile-drawer");
+  const closeBtn = drawer && drawer.querySelector(".rb-mobile-close");
+
+  const openDrawer = () => {
+    if (!overlay || !drawer) return;
+    overlay.classList.add("is-open");
+    drawer.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeDrawer = () => {
+    if (!overlay || !drawer) return;
+    overlay.classList.remove("is-open");
+    drawer.classList.remove("is-open");
+    document.body.style.overflow = "";
+  };
+
+  if (hamburger) hamburger.addEventListener("click", openDrawer);
+  if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+  if (overlay) overlay.addEventListener("click", closeDrawer);
+
+  // Set active link in mobile drawer too
+  const setMobileActiveLink = () => {
+    const current = window.location.pathname.split("/").pop() || "index.html";
+    const normalizedCurrent = normalize(current);
+    let activeTarget = normalizedCurrent;
+    if (normalizedCurrent.startsWith("atleta-")) activeTarget = "atletas.html";
+    else if (normalizedCurrent.startsWith("standings-detalle")) activeTarget = "standings.html";
+    else if (normalizedCurrent.startsWith("evento-")) activeTarget = "eventos.html";
+    if (!drawer) return;
+    const mobileLinks = Array.from(drawer.querySelectorAll(".rb-mobile-item"));
+    mobileLinks.forEach((link) => {
+      const href = normalize(link.getAttribute("href"));
+      if (href === activeTarget) {
+        link.classList.add("rb-mobile-item--active");
+      }
+    });
+  };
+
+  // -----------------------------
   // Init
   // -----------------------------
   setActiveLink();
+  setMobileActiveLink();
   setNavHeight();
   refreshScroller();
 
@@ -140,6 +185,8 @@
     requestAnimationFrame(() => {
       setNavHeight();
       refreshScroller();
+      // Close drawer on resize to desktop
+      if (window.innerWidth > 768) closeDrawer();
     });
   });
 

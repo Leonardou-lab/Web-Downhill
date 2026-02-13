@@ -615,10 +615,43 @@ body.page-home .sponsor:hover {
 
 @media (max-width: 620px) {
   body.page-home .athlete-featured-card {
-    flex: 0 0 300px;
+    flex: 0 0 280px;
   }
 
   body.page-home .athlete-featured-media {
-    height: 280px;
+    height: 260px;
+  }
+
+  body.page-home .athlete-featured-scroll {
+    gap: 18px;
+    padding: 30px 4% 16px;
+  }
+
+  body.page-home .home-events-btn,
+  body.page-home .btn-ver-todo {
+    padding: 14px 28px;
+    font-size: 0.85rem;
+  }
+
+  body.page-home .section-patrocinadores {
+    padding: 40px 3%;
+  }
+
+  body.page-home .sponsor {
+    width: 140px;
+    height: 85px;
+  }
+
+  body.page-home .novedades-slider {
+    height: min(400px, 60vh);
+    border-radius: 14px;
+  }
+
+  body.page-home .section-novedades {
+    padding: 50px 0 30px;
+  }
+
+  body.page-home .home-atletas {
+    padding: 20px 0 50px;
   }
 }

@@ -185,6 +185,42 @@ body.no-nav-padding {
     outline-offset: 2px;
 }
 
+/* Hamburger button – hidden on desktop */
+.rb-hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    transition: background 0.2s ease;
+}
+
+.rb-hamburger:hover {
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.rb-hamburger svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+/* Mobile overlay */
+.rb-mobile-overlay {
+    display: none;
+}
+
 @media (max-width: 860px) {
     .rb-pill {
         gap: 12px;
@@ -201,12 +237,164 @@ body.no-nav-padding {
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 768px) {
+    .rb-nav {
+        top: 10px;
+        padding: 0 3%;
+    }
+
     .rb-pill {
-        border-radius: 26px;
+        border-radius: 999px;
+        padding: 8px 14px;
+        gap: 10px;
+        width: auto;
+    }
+
+    .rb-menu {
+        display: none;
+    }
+
+    .rb-hamburger {
+        display: inline-flex;
+    }
+
+    .rb-actions {
+        display: none;
     }
 
     .rb-logo {
         font-size: 1.8rem;
+    }
+
+    /* Mobile drawer */
+    .rb-mobile-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1199;
+        opacity: 0;
+        transition: opacity 0.25s ease;
+    }
+
+    .rb-mobile-overlay.is-open {
+        display: block;
+        opacity: 1;
+    }
+
+    .rb-mobile-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(320px, 85vw);
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(14, 14, 14, 0.97);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 1201;
+        transform: translateX(100%);
+        transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .rb-mobile-drawer.is-open {
+        transform: translateX(0);
+    }
+
+    .rb-mobile-close {
+        align-self: flex-end;
+        width: 40px;
+        height: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin-bottom: 18px;
+        font-size: 22px;
+        transition: background 0.2s ease;
+    }
+
+    .rb-mobile-close:hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .rb-mobile-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .rb-mobile-item {
+        display: block;
+        padding: 14px 18px;
+        border-radius: 12px;
+        color: rgba(255, 255, 255, 0.82);
+        font-weight: 600;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .rb-mobile-item:hover,
+    .rb-mobile-item:focus-visible {
+        background: rgba(255, 255, 255, 0.08);
+        color: #ffffff;
+    }
+
+    .rb-mobile-item--active {
+        background: rgba(225, 6, 0, 0.15);
+        color: #ffffff;
+    }
+
+    .rb-mobile-actions {
+        margin-top: auto;
+        padding-top: 18px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .rb-mobile-login {
+        display: block;
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 12px;
+        background: #e10600;
+        color: #ffffff;
+        font-weight: 800;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: none;
+        transition: background 0.2s ease;
+    }
+
+    .rb-mobile-login:hover {
+        background: #c00500;
+    }
+}
+
+@media (max-width: 480px) {
+    .rb-nav {
+        top: 8px;
+        padding: 0 3%;
+    }
+
+    .rb-pill {
+        padding: 7px 12px;
+    }
+
+    .rb-logo {
+        font-size: 1.6rem;
     }
 }

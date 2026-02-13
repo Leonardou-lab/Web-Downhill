@@ -2569,3 +2569,107 @@ body.page-dark .standings-table tbody tr.primer-lugar:hover {
         font-size: 1.1rem;
     }
 }
+
+/* ============================================
+   MOBILE-SPECIFIC FIXES (≤480px)
+   ============================================ */
+@media (max-width: 480px) {
+    /* Wheel section on mobile */
+    .wheel-controls {
+        right: 8px;
+    }
+
+    .wheel-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .wheel-card {
+        padding: 20px 16px;
+        border-radius: 18px;
+    }
+
+    .wheel-viewport {
+        height: min(60vh, 440px);
+        padding: 30px 3%;
+    }
+
+    .wheel-desc {
+        font-size: 0.92rem;
+    }
+
+    /* Novedades grid on mobile */
+    .novedades-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .novedades-card-image {
+        height: 180px;
+    }
+
+    /* Article on mobile */
+    .article-figure {
+        height: 220px;
+        border-radius: 12px;
+    }
+
+    /* Footer on mobile */
+    .site-footer {
+        padding: 40px 5% 18px;
+    }
+
+    .footer-logo {
+        font-size: 24px;
+    }
+
+    .footer-tagline {
+        font-size: 14px;
+    }
+
+    /* Standings sidebar as horizontal scroll on mobile */
+    .sidebar-menu {
+        display: flex;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 4px;
+        padding-bottom: 4px;
+    }
+
+    .sidebar-menu::-webkit-scrollbar {
+        display: none;
+    }
+
+    .sidebar-menu li {
+        flex-shrink: 0;
+    }
+
+    .sidebar-menu a {
+        padding: 10px 16px;
+        border-left: none;
+        border-bottom: 3px solid transparent;
+        white-space: nowrap;
+        font-size: 0.85rem;
+    }
+
+    .sidebar-menu a.active {
+        border-left: none;
+        border-bottom: 3px solid #e10600;
+    }
+
+    /* Standings table scroll hint */
+    .standings-table-wrapper {
+        border-radius: 10px;
+    }
+
+    .standings-table {
+        min-width: 500px;
+    }
+
+    .standings-table th,
+    .standings-table td {
+        padding: 10px 10px;
+        font-size: 0.78rem;
+    }
+}
